@@ -19,10 +19,10 @@ def map_donut(input_state):
         get_state_id = int(input_state)
 
         # Reading in 2010 ACCIDENT data, downselecting the rows related to the user's state choice & reducing the dataframe to 4 columns
-        data_2010 = pd.read_csv('CSV_DATA/ACCIDENT_2010.csv', encoding='utf-8')
-        state_data_2010 = data_2010[data_2010.STATE ==get_state_id]
-        state_data_2010= state_data_2010.loc[:,['DAY_WEEK','HOUR','LATITUDE','LONGITUD']]
-        state_accident_count = state_data_2010.groupby(['DAY_WEEK']).count()
+        acc_data = pd.read_csv('CSV_DATA/ACCIDENT_2010.csv', encoding='utf-8')
+        state_data = acc_data[acc_data.STATE ==get_state_id]
+        state_data = state_data.loc[:,['DAY_WEEK','HOUR','LATITUDE','LONGITUD']]
+        state_accident_count = state_data.groupby(['DAY_WEEK']).count()
         state_accident_count_list = state_accident_count['HOUR'].tolist()
 
         # Setting up a subplot with 1 row and 2 columns, specifying that the first column is a scattergeo map and the second column is a pie chart
@@ -33,8 +33,8 @@ def map_donut(input_state):
 
     # Adding a Scattergeo trace with latitude, longitude, marker (w/ color), title & focusing map to USA region
         fig.add_trace(
-            go.Scattergeo(lat=state_data_2010["LATITUDE"],
-                        lon=state_data_2010["LONGITUD"],
+            go.Scattergeo(lat=state_data["LATITUDE"],
+                        lon=state_data["LONGITUD"],
                         mode="markers",
                         marker= dict(color='red'),
                         name='Accident Location',
