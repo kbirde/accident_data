@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from state_dict import state_dict
 
-def map_donut(accident_file , input_state):
+def map_donut(accident_file , input_state, year2):
     """This function takes in user input and plots the map & donut chart"""
 
     # Assign the state_dictionary
@@ -55,7 +55,7 @@ def map_donut(accident_file , input_state):
             height = 500,
             width = 900,
             title={
-                'text': "<b> Accident Analysis for {} (2010)".format(get_state),
+                'text': "<b> Accident Analysis for {} ({})".format(get_state, year2),
                 'y':0.9,
                 'x':0.5,
                 'xanchor': 'center',
@@ -93,19 +93,12 @@ def map_donut(accident_file , input_state):
 
 if __name__ == '__main__':
 
-    # import sys
-    # if len(sys.argv) != 2:
-    #     print("Usage: python map_donut.py <integer_value>")
-    #     sys.exit(1)
-    # input_state = int(sys.argv[1])
-    # map_donut(input_state)
-
-
     parser = argparse.ArgumentParser(
         description="Map & Donut chart generator"
         )
     parser.add_argument("accident_file", help="Path to ACCIDENT_YEAR.csv file")
     parser.add_argument("input_state", help="State code ID ( Use: python3 codes.py)")
+    parser.add_argument("year2", help="Enter year of interest") 
     args = parser.parse_args()
 
-    map_donut(args.accident_file, args.input_state)
+    map_donut(args.accident_file, args.input_state, args.year2)

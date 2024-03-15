@@ -13,9 +13,6 @@ state_dict = {1:'Alabama',2: 'Alaska', 4: 'Arizona',5: 'Arkansas',6: 'California
             53: 'Washington',54: 'West Virginia',55: 'Wisconsin',56: 'Wyoming'}
 
 if __name__ == "__main__":
-    # print('------------------------------------')    
-    # print("This code contains the State code ids")
-    # print('------------------------------------')
 
     parser = argparse.ArgumentParser(
         description="Contains the state code ids. This file is called & used by other modules."

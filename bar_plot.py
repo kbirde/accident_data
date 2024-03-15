@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from state_dict import state_dict
 
-def bar_plot(person_file,input_state):
+def bar_plot(person_file, input_state, year1):
     """This function takes user input and plots a pull down bar chart """
 
     # Assign the state_dictionary
@@ -51,7 +51,7 @@ def bar_plot(person_file,input_state):
         non_fatal_res_not_used_list = [non_fatal_res_not_used]
 
         # Creating year list
-        year = ['2010']
+        year = [int(year1)]
 
         # Creating 4 traces for each combination of fatality/non-fatality data with & without seatbelts for 2010
         trace1 = go.Bar(
@@ -118,7 +118,7 @@ def bar_plot(person_file,input_state):
         # Specifying stacked bar char adding titles
         fig1.update_layout(barmode='stack',
             title={
-                    'text': "<b> Effect of Restraints in {} (2010)".format(get_state),
+                    'text': "<b> Effect of Restraints in {} ({})".format(get_state, year1),
                     'y':0.95,
                     'x':0.5,
                     'xanchor': 'center',
@@ -138,18 +138,12 @@ def bar_plot(person_file,input_state):
 
 if __name__ == '__main__':
 
-    # import sys
-    # if len(sys.argv) != 2:
-    #     print("Usage: python3 bar_plot.py <integer_value>")
-    #     sys.exit(1)
-    # input_value = int(sys.argv[1])
-    # bar_plot(input_value)
-
     parser = argparse.ArgumentParser(
         description="Bar plot generator"
         )
     parser.add_argument("person_file", help="Path to PERSON_YEAR.csv file")
     parser.add_argument("input_state", help="State code ID ( Use: python3 codes.py)")
+    parser.add_argument("year1", help="Enter year of interest")    
     args = parser.parse_args()
 
-    bar_plot(args.person_file, args.input_state)
+    bar_plot(args.person_file, args.input_state, args.year1)
