@@ -19,35 +19,35 @@ def bar_plot(input_state):
         get_state_id = int(input_state)
 
         # Reading in PERSON related csv file
-        person_data_2010 = pd.read_csv('CSV_DATA/PERSON_2010.csv', encoding='utf-8')
+        person_data = pd.read_csv('CSV_DATA/PERSON_2010.csv', encoding='utf-8')
 
         # Selecting rows based on state entered by the user
-        person_data_2010 = person_data_2010[person_data_2010.STATE ==get_state_id]
+        person_data = person_data[person_data.STATE ==get_state_id]
 
         # Reducing dataframe to 2 columns of interest
-        person_data_2010 = person_data_2010.loc[:,["REST_USE",'DEATH_DA']]
+        person_data = person_data.loc[:,["REST_USE",'DEATH_DA']]
 
         # Selecting rows with restraints used (code ==3) and dropping unavailable fatality information (code !=99)
-        res_used_2010 = person_data_2010[(person_data_2010.REST_USE==3) & (person_data_2010.DEATH_DA!=99)]
+        res_used = person_data[(person_data.REST_USE==3) & (person_data.DEATH_DA!=99)]
 
         # Downselecting rows with restraints used and fatality (code !=88) and assigning total number via shape[0]
-        fatal_res_used_2010 = res_used_2010[res_used_2010.DEATH_DA !=88].shape[0]
-        fatal_res_used_2010_list = [fatal_res_used_2010]
+        fatal_res_used = res_used[res_used.DEATH_DA !=88].shape[0]
+        fatal_res_used_list = [fatal_res_used]
 
         # Downselecting rows with restraints used and non-fatality (code ==88) and assigning total number via shape[0]
-        non_fatal_res_used_2010 = res_used_2010[res_used_2010.DEATH_DA ==88].shape[0]
-        non_fatal_res_used_2010_list = [non_fatal_res_used_2010]
+        non_fatal_res_used = res_used[res_used.DEATH_DA ==88].shape[0]
+        non_fatal_res_used_list = [non_fatal_res_used]
 
         # Selecting rows with restraints NOT used (code ==7) and dropping unavailable fatality information (code !=99)
-        res_not_used_2010 = person_data_2010[(person_data_2010.REST_USE==7) & (person_data_2010.DEATH_DA!=99)]
+        res_not_used = person_data[(person_data.REST_USE==7) & (person_data.DEATH_DA!=99)]
 
         # Downselecting rows with restraints NOT used and fatality (code !=88) and assigning total number via shape[0]
-        fatal_res_not_used_2010 = res_not_used_2010[res_not_used_2010.DEATH_DA !=88].shape[0]
-        fatal_res_not_used_2010_list = [fatal_res_not_used_2010]
+        fatal_res_not_used = res_not_used[res_not_used.DEATH_DA !=88].shape[0]
+        fatal_res_not_used_list = [fatal_res_not_used]
 
         # Downselecting rows with restraints NOT used and non-fatality (code ==88) and assigning total number via shape[0]
-        non_fatal_res_not_used_2010 = res_not_used_2010[res_not_used_2010.DEATH_DA ==88].shape[0]
-        non_fatal_res_not_used_2010_list = [non_fatal_res_not_used_2010]
+        non_fatal_res_not_used = res_not_used[res_not_used.DEATH_DA ==88].shape[0]
+        non_fatal_res_not_used_list = [non_fatal_res_not_used]
 
         # Creating year list
         year = ['2010']
@@ -55,22 +55,22 @@ def bar_plot(input_state):
         # Creating 4 traces for each combination of fatality/non-fatality data with & without seatbelts for 2010
         trace1 = go.Bar(
             x = year,
-            y = non_fatal_res_used_2010_list,
+            y = non_fatal_res_used_list,
             name='Non Fatal, w/ Seatbelts')
 
         trace2 = go.Bar(
             x = year,
-            y = fatal_res_used_2010_list,
+            y = fatal_res_used_list,
             name='Fatal, w/ Seatbelts')
 
         trace3 = go.Bar(
             x = year,
-            y = non_fatal_res_not_used_2010_list,
+            y = non_fatal_res_not_used_list,
             name='Non Fatal, w/o Seatbelts')
 
         trace4 = go.Bar(
             x = year,
-            y = fatal_res_not_used_2010_list,
+            y = fatal_res_not_used_list,
             name='Fatal, w/o Seatbelts')
 
         # Creating a list of traces
