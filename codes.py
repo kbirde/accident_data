@@ -1,4 +1,5 @@
 """This module provides a list of state code ids to the user"""
+import argparse
 import pandas as pd
 from state_dict import state_dict
 
@@ -25,8 +26,11 @@ def codes():
     return print(df_combined.to_string(index=False))
 
 if __name__ == "__main__":
-    print('------------------------------------')    
-    print("Choose the state code to be entered:")
-    print('------------------------------------')
-    codes()
+
+    parser = argparse.ArgumentParser(
+        description="Choose the state code to be entered:"
+        )
+    args = parser.parse_args()
+
+    codes()    
 

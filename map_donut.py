@@ -1,11 +1,12 @@
 """This module is for plotting US statewise accident location map & a Donut chart for accidents occurring on different days of the week """
+import argparse
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from state_dict import state_dict
 
-def map_donut(input_state):
+def map_donut(accident_file , input_state):
     """This function takes in user input and plots the map & donut chart"""
 
     # Assign the state_dictionary
@@ -19,7 +20,7 @@ def map_donut(input_state):
         get_state_id = int(input_state)
 
         # Reading in 2010 ACCIDENT data, downselecting the rows related to the user's state choice & reducing the dataframe to 4 columns
-        acc_data = pd.read_csv('CSV_DATA/ACCIDENT_2010.csv', encoding='utf-8')
+        acc_data = pd.read_csv(accident_file, encoding='utf-8')
         state_data = acc_data[acc_data.STATE ==get_state_id]
         state_data = state_data.loc[:,['DAY_WEEK','HOUR','LATITUDE','LONGITUD']]
         state_accident_count = state_data.groupby(['DAY_WEEK']).count()
@@ -92,9 +93,19 @@ def map_donut(input_state):
 
 if __name__ == '__main__':
 
-    import sys
-    if len(sys.argv) != 2:
-        print("Usage: python map_donut.py <integer_value>")
-        sys.exit(1)
-    input_state = int(sys.argv[1])
-    map_donut(input_state)
+    # import sys
+    # if len(sys.argv) != 2:
+    #     print("Usage: python map_donut.py <integer_value>")
+    #     sys.exit(1)
+    # input_state = int(sys.argv[1])
+    # map_donut(input_state)
+
+
+    parser = argparse.ArgumentParser(
+        description="Map & Donut chart generator"
+        )
+    parser.add_argument("accident_file", help="Path to ACCIDENT_YEAR.csv file")
+    parser.add_argument("input_state", help="State code ID ( Use: python3 codes.py)")
+    args = parser.parse_args()
+
+    map_donut(args.accident_file, args.input_state)

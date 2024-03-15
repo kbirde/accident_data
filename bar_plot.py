@@ -1,16 +1,17 @@
 """This module plots a bar chart with a pull down menu from which user can plot results based on restraint usage """
+import argparse
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from state_dict import state_dict
 
-def bar_plot(input_state):
+def bar_plot(person_file,input_state):
     """This function takes user input and plots a pull down bar chart """
 
     # Assign the state_dictionary
     state_dict1 = state_dict
-
+ 
     # Setting up try block of statements that will work if existing state code is entered 
     try:
         
@@ -19,7 +20,7 @@ def bar_plot(input_state):
         get_state_id = int(input_state)
 
         # Reading in PERSON related csv file
-        person_data = pd.read_csv('CSV_DATA/PERSON_2010.csv', encoding='utf-8')
+        person_data = pd.read_csv(person_file, encoding='utf-8')
 
         # Selecting rows based on state entered by the user
         person_data = person_data[person_data.STATE ==get_state_id]
@@ -137,9 +138,18 @@ def bar_plot(input_state):
 
 if __name__ == '__main__':
 
-    import sys
-    if len(sys.argv) != 2:
-        print("Usage: python3 bar_plot.py <integer_value>")
-        sys.exit(1)
-    input_value = int(sys.argv[1])
-    bar_plot(input_value)
+    # import sys
+    # if len(sys.argv) != 2:
+    #     print("Usage: python3 bar_plot.py <integer_value>")
+    #     sys.exit(1)
+    # input_value = int(sys.argv[1])
+    # bar_plot(input_value)
+
+    parser = argparse.ArgumentParser(
+        description="Bar plot generator"
+        )
+    parser.add_argument("person_file", help="Path to PERSON_YEAR.csv file")
+    parser.add_argument("input_state", help="State code ID ( Use: python3 codes.py)")
+    args = parser.parse_args()
+
+    bar_plot(args.person_file, args.input_state)
