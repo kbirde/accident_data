@@ -28,7 +28,7 @@ Here are the steps to run this project:
 
 2) Install plotly package
 
-    pip instll plotly
+    pip install plotly
 
 3) Run the codes.py module to select your state ID:
 
