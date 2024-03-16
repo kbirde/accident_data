@@ -6,7 +6,7 @@ The main objective of this project is to process & extract accident data from th
 
 # 2.0 DATASET:
 
- The original accident data is available for download for the years 1975 - 2021 at the following web address: https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/. For the purpose of this project, two sets of data (ACCIDENT & PERSON) were selected for the year 2010. Each file is of the comma separated values (CSV) format and has several features. In this project only 4 features (DAY_WEEK, HOUR, LATITUDE & LONGITUDE) have been downselected for plotting purposes. These CSV files are stored in a sub-directory called CSV_DATA. 
+ The original accident data is available for download for the years 1975 - 2021 at the following web address: https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/. For the purpose of this project, two sets of data (ACCIDENT & PERSON) were selected for the year <b>2010</b>. Each file is of the comma separated values (CSV) format and has several features. In this project only 4 features (DAY_WEEK, HOUR, LATITUDE & LONGITUDE) have been downselected for plotting purposes. These CSV files are stored in a sub-directory called CSV_DATA. 
 
 # 3.0 MODULE DESCRIPTION
 
