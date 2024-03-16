@@ -18,7 +18,7 @@ if __name__ == "__main__":
         description="Bar plot and Map / Donut chart generator"
         )
     parser.add_argument("accident_file", help="Path to ACCIDENT_YEAR.csv file")
-    parser.add_argument("person_file", help="Path to PERSON_YEAR.csv file")    
+    parser.add_argument("person_file", help="Path to PERSON_YEAR.csv file")
     parser.add_argument("input_state", help="State code ID ( Use: python3 codes.py)")
     parser.add_argument("year", help="Enter year of interest")
     args = parser.parse_args()
