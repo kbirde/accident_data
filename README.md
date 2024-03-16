@@ -2,7 +2,7 @@
 
 # 1.0 INTRODUCTION:
 
-The main objective of this project is to process & extract accident data from the US National Highway Traffic Safety Adminstration (NHTSA) and to generate two different chart visualizations. The first visualization displays the accident location in the US state that the user chooses and the second visualization displays the annual average number of accidents that occurs on each day of the week in that state.
+The main objective of this project is to process & extract accident data from the US National Highway Traffic Safety Adminstration (NHTSA) and to generate two different chart visualizations. The first visualization displays the accident location in the US state that the user chooses and the annual average number of accidents that occurs on each day of the week in that state. The second visualization shows the effects of wearing / not wearing seatbelts on fatality rate.
 
 # 2.0 DATASET:
 
