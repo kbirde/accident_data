@@ -26,7 +26,9 @@ Here are the steps to run this project:
 
 1) Clone the project from https://github.com/kbirde/accident_data/
 
-2) Run the requirements.txt file to install any packages that might not be available in your environment
+2) Install plotly package
+
+    pip instll plotly
 
 3) Run the codes.py module to select your state ID:
 
