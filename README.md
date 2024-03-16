@@ -24,19 +24,19 @@ d) main.py: This is the main module that can be run by the user to display the v
 
 Here are the steps to run this project:
 
-1) Clone the project from https://github.com/kbirde/accident_data/
+1. Clone the project from https://github.com/kbirde/accident_data/
 
-2) Install plotly package
+2. Install plotly package
 
     pip install plotly
 
-3) Run the codes.py module to select your state ID:
+3. Run the codes.py module to select your state ID:
 
     python3 codes.py
 
     Example: The code for MI can be noticed to be 26
 
-4) Run the main.py module (arguments needed are path to CSV file, state ID code, accident year of interest):
+4. Run the main.py module (arguments needed are path to CSV file, state ID code, accident year of interest):
 
     python3 main.py CSV_DATA/ACCIDENT_2010.csv 26 2010
 
