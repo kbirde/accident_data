@@ -15,6 +15,7 @@ state_dict = {1:'Alabama',2: 'Alaska', 4: 'Arizona',5: 'Arkansas',6: 'California
 
 if __name__ == "__main__":
 
+    print('----------------------------------------------------------')
     print("Please NOTE: This script is called in by other modules.\n"
     "It does not display any specific output.")
 
