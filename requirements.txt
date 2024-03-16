@@ -5,7 +5,6 @@ argon2-cffi-bindings==21.2.0
 array-record==0.2.0
 arrow==1.2.3
 asgiref==3.6.0
-astroid==3.1.0
 asttokens==2.2.1
 astunparse==1.6.3
 attrs==23.1.0
@@ -35,7 +34,7 @@ dbus-python==1.2.16
 debugpy==1.6.7
 decorator==5.1.1
 defusedxml==0.7.1
-dill==0.3.8
+distlib==0.3.7
 distro-info===0.23ubuntu1
 Django==4.1.7
 dm-tree==0.1.8
@@ -43,7 +42,7 @@ docutils==0.16
 etils==1.2.0
 executing==1.2.0
 fastjsonschema==2.16.3
-filelock==3.12.0
+filelock==3.12.3
 Flask==2.2.3
 flatbuffers==23.3.3
 fonttools==4.39.3
@@ -73,7 +72,6 @@ ipython==8.13.1
 ipython-genutils==0.2.0
 ipywidgets==8.0.6
 isoduration==20.11.0
-isort==5.13.2
 itsdangerous==2.1.2
 jax==0.4.8
 jedi==0.18.2
@@ -104,7 +102,6 @@ Markdown==3.1.1
 MarkupSafe==2.1.2
 matplotlib==3.6.3
 matplotlib-inline==0.1.6
-mccabe==0.7.0
 mediapy==1.1.6
 mistune==2.0.5
 ml-dtypes==0.1.0
@@ -148,8 +145,8 @@ pexpect==4.8.0
 phik==0.12.3
 pickleshare==0.7.5
 Pillow==9.5.0
-platformdirs==3.5.0
-plotly==5.19.0
+platformdirs==3.10.0
+plotly==5.20.0
 portalocker==2.7.0
 prometheus-client==0.16.0
 promise==2.3
@@ -167,7 +164,6 @@ pydantic==1.10.7
 Pygments==2.15.1
 PyGObject==3.36.0
 PyJWT==2.7.0
-pylint==3.1.0
 pyparsing==2.4.6
 pyrsistent==0.19.3
 python-apt==2.0.1+ubuntu0.20.4.1
@@ -231,8 +227,6 @@ threadpoolctl==3.1.0
 tifffile==2023.4.12
 tinycss2==1.2.1
 toml==0.10.2
-tomli==2.0.1
-tomlkit==0.12.4
 torch==2.0.0
 torchvision==0.15.1
 tornado==6.2
@@ -241,11 +235,12 @@ traitlets==5.9.0
 triton==2.0.0
 ttystatus==0.38
 typeguard==2.13.3
-typing_extensions==4.5.0
+typing_extensions==4.7.1
 unattended-upgrades==0.1
 uri-template==1.2.0
 uritemplate==4.1.1
 urllib3==1.26.16
+virtualenv==20.24.5
 visions==0.7.5
 wcwidth==0.2.6
 webcolors==1.13
