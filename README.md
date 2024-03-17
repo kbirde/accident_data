@@ -2,11 +2,11 @@
 
 # 1.0 INTRODUCTION:
 
-The main objective of this project is to process & extract accident data from the US National Highway Traffic Safety Adminstration (NHTSA) and to generate two different chart visualizations. The first visualization displays the accident location in the US state that the user chooses and the annual average number of accidents that occurs on each day of the week in that state. The second visualization shows the effects of wearing / not wearing seatbelts on fatality rate.
+The main objective of this project is to process & extract accident data from the US National Highway Traffic Safety Adminstration (NHTSA) and to generate two different chart visualizations. The first visualization displays the accident location in the US state that the user chooses and the annual average number of accidents that occurs on each day of the week in that state. The second visualization shows the effects of either wearing or not wearing seatbelts on the accident fatality rate.
 
 # 2.0 DATASET:
 
- The original accident data is available for download for the years 1975 - 2021 at the following web address: https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/. For the purpose of this project, two sets of data (ACCIDENT & PERSON) were selected for the year <b>2010</b>. Each file is of the comma separated values (CSV) format and has several features. In this project only 4 features, i.e. DAY_WEEK, HOUR, LATITUDE & LONGITUDE from the ACCIDENT_2010.csv file and 2 features, i.e. RES_USE, DEATH_DA from the PERSON_2010.csv files have been downselected for plotting purposes. These CSV files are stored in a sub-directory called CSV_DATA. 
+ The original accident data is available for download for the years 1975 - 2021 at the following web address: https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/. For the purpose of this project, two sets of data (ACCIDENT & PERSON) were selected for the year <b>2010</b>. Each file is of the comma separated values (CSV) format and has several features. In this project only 4 features, i.e. DAY_WEEK, HOUR, LATITUDE & LONGITUDE from the ACCIDENT_2010.csv file and 2 features, i.e. RES_USE & DEATH_DA from the PERSON_2010.csv files have been downselected for plotting purposes. These CSV files are stored in a sub-directory called CSV_DATA. 
 
 # 3.0 MODULE DESCRIPTION
 
@@ -16,15 +16,15 @@ The project consists of 5 different modules as outlined below:
 
 2. code.py: This module calls in the state_dict.py and displays all the US state IDs from which the user can choose one
 
-3. map_donut.py: After the user selects the US state ID, this module plots the two visualizations in a new VS code tab when the user enters the aforementioned ID and the accident year they are interested in from the data stored in the CSV_DATA folder. In the event the user chooses an unavilable state ID, the try & except error block will capture this situation. This file can be run independently and the help option provides the syntax to run the code.
+3. map_donut.py: After the user selects the US state ID by running code.py, this module plots the two visualizations in a new VS code tab when the user enters the aforementioned ID and the accident year they are interested in from the data stored in the CSV_DATA folder. In the event the user chooses an unavailable state ID, the try & except error block will capture this situation. This file can be run independently and the -h help option provides the syntax to run the code.
 
-4. bar_plot.py: After the user selects the US state ID, this module dislays a bar chart with a pull down menu option when the user provides the ID & accident year as indicated in the previous module. The try & except error block will capture a situation that the user enters an invalid state ID. This file can also be run independently and the syntax is available with the -h option.
+4. bar_plot.py: After the user selects the US state ID by running code.py, this module displays a bar chart with a pull down menu option when the user provides this state ID & the accident year as indicated in the map_donut module. The try & except error block will capture a situation that the user enters an invalid state ID. This file can also be run independently and the syntax is available via the -h help option.
 
-5. main.py: This is the main module that can be run by the user to display the visualizations. If more modules are created for additional display charts, this main module should be able to integrate them.
+5. main.py: This is the main module that can be run by the user to display the visualizations. The syntax to run this code can be obtained using the -h help option. If more modules are created for additional display charts, this main module should be able to integrate them.
 
 # 4.0 USAGE:
 
-Here are the steps to run this project:
+Here are the complete steps to run this project:
 
 1. Clone the project from https://github.com/kbirde/accident_data/
 
@@ -38,7 +38,15 @@ Here are the steps to run this project:
 
     Example: The code for MI can be noticed to be 26
 
-4. Run the main.py module (arguments needed are path to ACCIDENT_2010.csv file, path to the PERSON_2010.csv file, state ID code, accident year of interest):
+4. (OPTIONAL) Run the map_donut.py module (arguments required are path to ACCIDENT_2010.csv file, state ID code, accident year of interest)
+
+    python3 map_donut.py CSV_DATA/ACCIDENT_2010.csv 26 2010
+
+5. (OPTIONAL) Run the bar_plot.py module (arguments required are path to PERSON_2010.csv file, state ID code, accident year of interest)
+
+    python3 bar_plot.py CSV_DATA/PERSON_2010.csv 26 2010
+
+6. Run the main.py module (arguments needed are path to ACCIDENT_2010.csv file, path to the PERSON_2010.csv file, state ID code, accident year of interest):
 
     python3 main.py CSV_DATA/ACCIDENT_2010.csv CSV_DATA/PERSON_2010.csv 26 2010
 
@@ -62,5 +70,6 @@ This plot contains a bar plot with a pull down menu. By default, the effects of 
 
 The modularity of the code allows us to add in other aspects that could be extracted from the FARS data set such as the effect of DUI driving, the occurance of accident types (frontal, side, rollover), etc. Each of these could be an independent module that can both be executed individually or called from the main.py module for a full report.
 
-# 7.0 AUTHOR:
-    Kiran Irde
+# 7.0 AUTHOR
+
+Kiran Irde
