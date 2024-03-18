@@ -60,7 +60,7 @@ This plot contains a map and a donut plot.
     
 The US map visualization indicates the location of the different accidents in the state of MI for the year 2010 (hovering the mouse over the state will provide the actual latitue and longitude locations).
 
-The donut chart contains, for each day of the week, the average number of accidents that occurred on any particular day. We can notice that maximum number of accidents occurred over the weekend, indicative of possible DUI incidents (this could be correlated using additional data from different source in the FARS data set for future project work).
+The donut chart contains, for each day of the week, the annual average number of accidents that occurred on any particular day. We can notice that maximum number of accidents occurred over the weekend, indicative of possible DUI incidents (this could be correlated using additional data from different source in the FARS data set for future project work).
 
 2. Bar plots:
 
